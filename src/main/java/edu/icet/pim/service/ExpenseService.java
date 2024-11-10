@@ -1,6 +1,8 @@
 package edu.icet.pim.service;
 
+import edu.icet.pim.entity.ReceiptEntity;
 import edu.icet.pim.model.Expense;
+import edu.icet.pim.model.Receipt;
 import edu.icet.pim.util.PaymentMethod;
 import edu.icet.pim.util.RecurringOption;
 
@@ -9,7 +11,7 @@ import java.util.List;
 
 public interface ExpenseService {
 
-    Boolean addExpense(Expense expense);
+    Boolean addExpenseWithReceipt(Expense expense, Receipt receipt);
     List<Expense> searchByDate(LocalDate date);
 
     List<Expense> searchByCategory(String category);

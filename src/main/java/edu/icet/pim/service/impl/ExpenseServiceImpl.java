@@ -2,29 +2,48 @@ package edu.icet.pim.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.icet.pim.entity.ExpenseEntity;
+import edu.icet.pim.entity.ReceiptEntity;
 import edu.icet.pim.model.Expense;
+import edu.icet.pim.model.Receipt;
 import edu.icet.pim.repository.ExpenseRepository;
+import edu.icet.pim.repository.ReceiptRepository;
 import edu.icet.pim.service.ExpenseService;
 import edu.icet.pim.util.PaymentMethod;
 import edu.icet.pim.util.RecurringOption;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.awt.*;
+import java.io.ByteArrayOutputStream;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.Deflater;
 
 @Service
 @RequiredArgsConstructor
 public class ExpenseServiceImpl implements ExpenseService {
 
     final ExpenseRepository repository;
+    final ReceiptRepository receiptRepository;
     final ObjectMapper mapper;
+
+
+    @Transactional
     @Override
-    public Boolean addExpense(Expense expense) {
-        repository.save(mapper.convertValue(expense, ExpenseEntity.class));
+    public Boolean addExpenseWithReceipt(Expense expense, Receipt receipt) {
+        ExpenseEntity saveExpense = repository.save(mapper.convertValue(expense, ExpenseEntity.class));
+        ReceiptEntity receiptEntity = mapper.convertValue(receipt, ReceiptEntity.class);
+
+        receiptEntity.setExpense(saveExpense);
+        receiptRepository.save(receiptEntity);
+        saveExpense.setReceiptId(receiptEntity);
+
         return true;
     }
+
+
 
     @Override
     public List<Expense> searchByDate(LocalDate date) {
