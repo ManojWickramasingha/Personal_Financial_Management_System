@@ -16,5 +16,6 @@ public class CategoryEntity {
    private Integer id;
    private String name;
    private String icon;
+   private String type;
    private String description;
 }

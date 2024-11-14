@@ -10,9 +10,9 @@ import java.util.Base64;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Category {
-    private Integer id;
     private String name;
     private String icon;
+    private String type;
     private String description;
 
     public void setIcon(String icon) {

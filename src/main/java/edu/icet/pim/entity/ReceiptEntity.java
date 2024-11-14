@@ -19,7 +19,5 @@ public class ReceiptEntity {
     private Integer id;
     @Lob
     private byte[] receiptImage;
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "expenseId")
-    private ExpenseEntity expense;
+
 }

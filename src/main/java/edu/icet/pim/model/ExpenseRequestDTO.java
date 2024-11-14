@@ -1,5 +1,7 @@
 package edu.icet.pim.model;
 
+import edu.icet.pim.entity.FileDataEntity;
+import edu.icet.pim.entity.ImageDataEntity;
 import lombok.*;
 
 @Getter
@@ -9,5 +11,5 @@ import lombok.*;
 @NoArgsConstructor
 public class ExpenseRequestDTO {
     private Expense expense;
-    private Receipt receipt;
+    private FileDataEntity receipt;
 }
