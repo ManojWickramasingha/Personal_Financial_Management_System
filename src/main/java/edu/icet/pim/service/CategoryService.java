@@ -13,4 +13,6 @@ public interface CategoryService {
      Category searchByName(String name);
 
      List<Category> getAll();
+
+    Boolean updateCategory(Category category);
 }

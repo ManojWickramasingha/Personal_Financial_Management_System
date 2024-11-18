@@ -10,6 +10,7 @@ import java.util.Base64;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Category {
+    private Integer id;
     private String name;
     private String icon;
     private String type;

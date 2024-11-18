@@ -23,4 +23,6 @@ public interface ExpenseService {
     Boolean deleteById(Integer id);
 
     Integer getReceiptId();
+
+    List<Expense> getAll();
 }

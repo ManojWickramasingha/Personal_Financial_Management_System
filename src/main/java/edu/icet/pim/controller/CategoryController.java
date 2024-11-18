@@ -38,4 +38,11 @@ public class CategoryController {
     public List<Category> getAll(){
         return service.getAll();
     }
+
+    @PutMapping("/update")
+    public Boolean updateCategory(@RequestBody Category category){
+        return service.updateCategory(category);
+    }
+
+
 }

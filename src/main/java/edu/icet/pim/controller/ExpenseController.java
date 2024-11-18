@@ -62,4 +62,9 @@ public class ExpenseController {
     public Integer getReceiptId(){
         return service.getReceiptId();
     }
+
+    @GetMapping("/get_all")
+    public List<Expense> getAll(){
+        return service.getAll();
+    }
 }

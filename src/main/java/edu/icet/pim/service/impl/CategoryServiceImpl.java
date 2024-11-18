@@ -45,4 +45,11 @@ public class CategoryServiceImpl implements CategoryService {
         }
         return categoryList;
     }
+
+    @Override
+    public Boolean updateCategory(Category category) {
+        repository.save(mapper.convertValue(category, CategoryEntity.class));
+        return true;
+
+    }
 }

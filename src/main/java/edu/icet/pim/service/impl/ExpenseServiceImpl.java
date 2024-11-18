@@ -77,4 +77,15 @@ public class ExpenseServiceImpl implements ExpenseService {
         Integer i = receiptRepository.findLastId();
         return i+1;
     }
+
+    @Override
+    public List<Expense> getAll() {
+        List<ExpenseEntity> expenses = repository.findAll();
+        List<Expense> expenseList = new ArrayList<>();
+
+        for(ExpenseEntity expense : expenses){
+            expenseList.add(mapper.convertValue(expense, Expense.class));
+        }
+        return expenseList;
+    }
 }
