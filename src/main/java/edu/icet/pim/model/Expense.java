@@ -17,5 +17,8 @@ public class Expense {
    private PaymentMethod paymentMethod;
    private String description;
    private Integer receipt;
+   private LocalDate startDate;
+   private LocalDate endDate;
+   private String recurrenceType;
 
 }

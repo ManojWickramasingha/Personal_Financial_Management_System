@@ -11,4 +11,7 @@ import java.util.List;
 public interface IncomeRepository extends JpaRepository<IncomeEntity,Long> {
     @Query(value = "SELECT e.amount FROM Income e WHERE e.create_date >= :startDate AND e.create_date <= :endDate", nativeQuery = true)
     List<String> findWeeklyIncomes(@Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate);
+
+    @Query(value = "SELECT e.amount FROM Income e WHERE e.create_date >= :startDate AND e.create_date <= :endDate", nativeQuery = true)
+    List<String> findMonthlyIncomes(@Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate);
 }

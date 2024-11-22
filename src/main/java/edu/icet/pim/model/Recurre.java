@@ -10,7 +10,11 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Recurre {
+   private Long id;
    private LocalDate startDate;
    private LocalDate endDate;
+   private Double amount;
    private String optionType;
+   private String category;
+   private String description;
 }

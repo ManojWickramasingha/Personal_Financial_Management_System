@@ -12,5 +12,6 @@ public class ExpenseGoal {
     private double total;
     private double goal;
     private LocalDate createDate;
+    private String goalType;
     private LocalDate updateDate;
 }

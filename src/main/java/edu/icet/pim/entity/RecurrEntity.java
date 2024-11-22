@@ -13,8 +13,12 @@ import java.time.LocalDate;
 @Table(name = "recurring")
 public class RecurrEntity {
     @Id
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private LocalDate startDate;
     private LocalDate endDate;
+    private Double amount;
     private String optionType;
+    private String category;
+    private String description;
 }

@@ -18,6 +18,7 @@ public class ExpenseGoalEntity {
     private Long id;
     private Double total;
     private Double goal;
+    private String goalType;
     private LocalDate createDate;
     private LocalDate updateDate;
 }

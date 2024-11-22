@@ -19,8 +19,18 @@ public interface ExpenseRepository extends JpaRepository<ExpenseEntity,Integer> 
     @Query(value = "SELECT e.amount FROM Expense e WHERE e.create_date >= :startDate AND e.create_date <= :endDate", nativeQuery = true)
     List<String> findWeeklyExpenses(@Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate);
 
+    @Query(value = "SELECT e.amount FROM Expense e WHERE e.create_date >= :startDate AND e.create_date <= :endDate", nativeQuery = true)
+    List<String> findMonthlyExpenses(@Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate);
+
     @Query(value = "SELECT e.category, SUM(CAST(SUBSTRING(e.amount, 4) AS DECIMAL)) FROM Expense e GROUP BY e.category", nativeQuery = true)
     List<Object[]> findTotalAmountByCategory();
+
+    @Query(value = "SELECT e.category, SUM(CAST(SUBSTRING(e.amount, 4) AS double)) " +
+            "FROM Expense e " +
+            "WHERE e.create_date BETWEEN :startDate AND :endDate " +
+            "GROUP BY e.category",nativeQuery = true)
+    List<Object[]> findTotalAmountByCategoryInDateRange(@Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate);
+
 
 
 }

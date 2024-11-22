@@ -21,11 +21,11 @@ public class RegisterServiceImpl implements RegisterService {
     private final ObjectMapper mapper;
     private final PasswordEncoder passwordEncoder;
     @Override
-    public String registerUser(User user) {
+    public Boolean registerUser(User user) {
         UserEntity userEntity = mapper.convertValue(user, UserEntity.class);
         userEntity.setPassword(passwordEncoder.encode(user.getPassword()));
-        UserEntity save = repository.save(userEntity);
-        return save.getName();
+        repository.save(userEntity);
+        return true;
     }
 
     @Override

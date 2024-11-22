@@ -3,10 +3,7 @@ package edu.icet.pim.controller;
 import edu.icet.pim.service.AnalysisService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
@@ -51,10 +48,45 @@ public class AnalysisController {
 
         return ResponseEntity.ok(data);
     }
+    @GetMapping("/monthly-summary")
+    public ResponseEntity<Map<String, List<Double>>> getMonthlySummary() {
+        Map<String, List<Double>> data = new HashMap<>();
+
+        Map<String, List<Double>> weeklySummary = service.getWeeklySummary();
+        List<Double> expenses = weeklySummary.get("expenses");
+        List<Double> incomes = weeklySummary.get("incomes");
+
+        data.put("expenses", expenses);
+        data.put("incomes", incomes);
+
+        return ResponseEntity.ok(data);
+    }
+
 
     @GetMapping("/categoryTotal")
     public Map<String, Double> categoryByTotal(){
        return service.categoryByTotal();
     }
+
+    @GetMapping("/expense/monthly/total")
+    public Double monthlyTotal(){
+        return service.monthlyExpenseTotal();
+    }
+
+    @GetMapping("/income/monthly/total")
+    public Double monthlyIncomeTotal(){
+        return service.monthlyIncomeTotal();
+    }
+
+    @GetMapping("/monthly/netProfit")
+    public Double monthlyProfit(){
+        return service.monthlyProfit();
+    }
+
+    @GetMapping("/monthly/category_bY/total")
+    public Map<String, Double> monthlyCategoryByTotal(){
+        return service.monthlyCategoryByTotal();
+    }
+
 
 }

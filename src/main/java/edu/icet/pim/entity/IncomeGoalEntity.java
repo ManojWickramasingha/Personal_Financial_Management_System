@@ -18,5 +18,6 @@ public class IncomeGoalEntity {
     private Double total;
     private Double goal;
     private LocalDate createDate;
+    private String goalType;
     private LocalDate updateDate;
 }

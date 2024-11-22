@@ -76,6 +76,30 @@ public class AnalysisServiceImpl implements AnalysisService {
     }
 
     @Override
+    public Map<String, List<Double>> getMonthlySummary() {
+        LocalDate endDate = LocalDate.now();
+        LocalDate startDate = endDate.minusDays(29);
+
+        List<String> expenses = expenseRepository.findMonthlyExpenses(startDate, endDate);
+        List<String> incomes = incomeRepository.findMonthlyIncomes(startDate, endDate);
+        List<Double> clearExpenses = new ArrayList<>();
+        List<Double> clearIncomes = new ArrayList<>();
+
+        for(String expense : expenses){
+            clearExpenses.add(Double.parseDouble(expense.toString().substring(3).replaceAll(",", "")));
+        }
+
+        for(String income : incomes){
+            clearIncomes.add(Double.parseDouble(income.substring(3).replaceAll(",","")));
+        }
+
+        Map<String, List<Double>> data = new HashMap<>();
+        data.put("expenses", clearExpenses);
+        data.put("incomes", clearIncomes);
+        return data;
+    }
+
+    @Override
     public Map<String, Double> categoryByTotal() {
         Map<String, Double> categoryAmountMap = new HashMap<>();
         List<Object[]> totalAmountByCategory = expenseRepository.findTotalAmountByCategory();
@@ -87,4 +111,74 @@ public class AnalysisServiceImpl implements AnalysisService {
         }
          return categoryAmountMap;
     }
+
+    @Override
+    public Double monthlyExpenseTotal() {
+        List<ExpenseEntity> expenses = expenseRepository.findAll();
+        double total = 0.0;
+        LocalDate today = LocalDate.now();
+        LocalDate startDate = today.minusDays(29);
+
+        for (ExpenseEntity expense : expenses) {
+            LocalDate expenseDate = expense.getCreateDate();
+            if(expenseDate == null){
+                continue;
+            }
+            if (!expenseDate.isBefore(startDate) && !expenseDate.isAfter(today)) {
+                    total += Double.parseDouble(expense.getAmount().substring(3));
+                }
+
+
+        }
+        return total;
+    }
+
+    @Override
+    public Double monthlyIncomeTotal() {
+        List<IncomeEntity> incomes = incomeRepository.findAll();
+        double total = 0.0;
+        LocalDate today = LocalDate.now();
+        LocalDate startDate = today.minusDays(29);
+
+        for (IncomeEntity income : incomes) {
+            LocalDate incomeDate = income.getCreateDate();
+            if(incomeDate == null){
+                continue;
+            }
+            if (!incomeDate.isBefore(startDate) && !incomeDate.isAfter(today)) {
+                total += Double.parseDouble(income.getAmount().substring(3));
+            }
+
+
+        }
+        return total;
+    }
+
+    @Override
+    public Double monthlyProfit() {
+        return monthlyIncomeTotal()-monthlyExpenseTotal();
+    }
+
+    @Override
+    public Map<String, Double> monthlyCategoryByTotal() {
+        Map<String, Double> categoryAmountMap = new HashMap<>();
+
+        // Calculate the date range
+        LocalDate today = LocalDate.now();
+        LocalDate startDate = today.minusDays(29);
+
+        // Fetch data from repository
+        List<Object[]> totalAmountByCategory = expenseRepository.findTotalAmountByCategoryInDateRange(startDate, today);
+
+        // Map the results to categoryAmountMap
+        for (Object[] record : totalAmountByCategory) {
+            String category = (String) record[0];
+            Double amount = Double.parseDouble(record[1].toString());
+            categoryAmountMap.put(category, amount);
+        }
+
+        return categoryAmountMap;
+    }
+
+
 }

@@ -5,7 +5,7 @@ import edu.icet.pim.model.UserLogin;
 import edu.icet.pim.reponse.LoginMessage;
 
 public interface RegisterService {
-    String registerUser(User user);
+    Boolean registerUser(User user);
 
     LoginMessage userLogin(UserLogin userLogin);
 }

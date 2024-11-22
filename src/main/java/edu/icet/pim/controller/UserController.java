@@ -16,7 +16,7 @@ public class UserController {
 
     private final RegisterService service;
     @PostMapping("/registration")
-    public String registerUser(@Valid @RequestBody User user){
+    public Boolean registerUser(@Valid @RequestBody User user){
         return service.registerUser(user);
     }
 

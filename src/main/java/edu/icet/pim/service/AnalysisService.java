@@ -15,5 +15,15 @@ public interface AnalysisService {
 
     public Map<String, List<Double>> getWeeklySummary();
 
+    public Map<String, List<Double>> getMonthlySummary();
+
     Map<String, Double> categoryByTotal();
+
+    Double monthlyExpenseTotal();
+
+    Double monthlyIncomeTotal();
+
+    Double monthlyProfit();
+
+    Map<String, Double> monthlyCategoryByTotal();
 }
