@@ -88,5 +88,20 @@ public class AnalysisController {
         return service.monthlyCategoryByTotal();
     }
 
+    @GetMapping("/weekly/expense/total")
+    public Double weeklyExpenseTotal(){
+        return service.weeklyExpenseTotal();
+    }
+
+    @GetMapping("/weekly/income/total")
+    public Double weeklyIncomeTotal(){
+        return service.weeklyIncomeTotal();
+    }
+
+    @GetMapping("weekly/profit")
+    public Double weeklyProfit(){
+        return service.weeklyProfit();
+    }
+
 
 }

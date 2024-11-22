@@ -4,26 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99370de8-108a-4066-8aae-9c5619cb963b" name="Changes" comment="Login,Registration And spring security added">
+    <list default="true" id="99370de8-108a-4066-8aae-9c5619cb963b" name="Changes" comment="Monthly expense and income Now days before 29 day filter calculation category By Total Monthly Calculation logic implement using HashMap">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/icet/pim/controller/AnalysisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/icet/pim/controller/AnalysisController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/icet/pim/controller/RecurrController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/icet/pim/controller/RecurrController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/icet/pim/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/icet/pim/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/icet/pim/entity/ExpenseGoalEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/icet/pim/entity/ExpenseGoalEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/icet/pim/entity/IncomeGoalEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/icet/pim/entity/IncomeGoalEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/icet/pim/entity/RecurrEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/icet/pim/entity/RecurrEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/icet/pim/model/Expense.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/icet/pim/model/Expense.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/icet/pim/model/ExpenseGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/icet/pim/model/ExpenseGoal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/icet/pim/model/IncomeGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/icet/pim/model/IncomeGoal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/icet/pim/model/Recurre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/icet/pim/model/Recurre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/icet/pim/repository/ExpenseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/icet/pim/repository/ExpenseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/icet/pim/repository/IncomeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/icet/pim/repository/IncomeRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/icet/pim/service/AnalysisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/icet/pim/service/AnalysisService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/icet/pim/service/RecurrService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/icet/pim/service/RecurrService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/icet/pim/service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/icet/pim/service/RegisterService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/icet/pim/service/impl/AnalysisServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/icet/pim/service/impl/AnalysisServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/icet/pim/service/impl/RecurreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/icet/pim/service/impl/RecurreServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/icet/pim/service/impl/RegisterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/icet/pim/service/impl/RegisterServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +129,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731958882305</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Monthly expense and income Now days before 29 day filter calculation category By Total Monthly Calculation logic implement using HashMap">
+      <option name="closed" value="true" />
+      <created>1732269429132</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1732269429132</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -163,6 +156,7 @@
     <MESSAGE value="Expense save and receive data" />
     <MESSAGE value="Chart Js data Intergrate API and native Query with Hibernate" />
     <MESSAGE value="Login,Registration And spring security added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login,Registration And spring security added" />
+    <MESSAGE value="Monthly expense and income Now days before 29 day filter calculation category By Total Monthly Calculation logic implement using HashMap" />
+    <option name="LAST_COMMIT_MESSAGE" value="Monthly expense and income Now days before 29 day filter calculation category By Total Monthly Calculation logic implement using HashMap" />
   </component>
 </project>

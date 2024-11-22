@@ -180,5 +180,52 @@ public class AnalysisServiceImpl implements AnalysisService {
         return categoryAmountMap;
     }
 
+    @Override
+    public Double weeklyExpenseTotal() {
+        List<ExpenseEntity> expenses = expenseRepository.findAll();
+        double total = 0.0;
+        LocalDate today = LocalDate.now();
+        LocalDate startDate = today.minusDays(6);
+
+        for (ExpenseEntity expense : expenses) {
+            LocalDate expenseDate = expense.getCreateDate();
+            if(expenseDate == null){
+                continue;
+            }
+            if (!expenseDate.isBefore(startDate) && !expenseDate.isAfter(today)) {
+                total += Double.parseDouble(expense.getAmount().substring(3));
+            }
+
+
+        }
+        return total;
+    }
+
+    @Override
+    public Double weeklyIncomeTotal() {
+        List<IncomeEntity> incomes = incomeRepository.findAll();
+        double total = 0.0;
+        LocalDate today = LocalDate.now();
+        LocalDate startDate = today.minusDays(6);
+
+        for (IncomeEntity income : incomes) {
+            LocalDate incomeDate = income.getCreateDate();
+            if(incomeDate == null){
+                continue;
+            }
+            if (!incomeDate.isBefore(startDate) && !incomeDate.isAfter(today)) {
+                total += Double.parseDouble(income.getAmount().substring(3));
+            }
+
+
+        }
+        return total;
+    }
+
+    @Override
+    public Double weeklyProfit() {
+        return weeklyIncomeTotal()-weeklyExpenseTotal();
+    }
+
 
 }

@@ -26,4 +26,10 @@ public interface AnalysisService {
     Double monthlyProfit();
 
     Map<String, Double> monthlyCategoryByTotal();
+
+    Double weeklyExpenseTotal();
+
+    Double weeklyIncomeTotal();
+
+    Double weeklyProfit();
 }
